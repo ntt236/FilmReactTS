@@ -74,6 +74,6 @@ Make sure you have the following installed:
 1. **Start:**
     ```bash
     yarn dev
-2.**Build for production:**
-    ```bash
-    yarn build
+2. **Build for production:**
+   ```bash
+   yarn build
