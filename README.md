@@ -54,7 +54,7 @@
 Make sure you have the following installed:
 
 - **Programming Language**: TypeScript
-- **Package Manager**: Yarn or Npm
+- **Package Manager**: Yarn 
 
 ### Installation
 
