@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import logo from "@/assets/react.svg";
 import { SearchIcon } from "lucide-react";
+import GenreDropDown from "./GenreDropdown";
+import NationalDropDown from "./NationalDropdown";
 // import { useEffect, useState } from "react";
 // import axios from "axios";
 
@@ -25,7 +27,7 @@ const Header = () => {
   //   }, []);
 
   return (
-    <div className="flex justify-between items-center gap-4 bg-gray- h[300px] px-4 py-6 shadow-md">
+    <div className="flex justify-between items-center gap-4  h[300px] px-4 py-6 shadow-md ">
       {/* Logo */}
       <div className="flex items-center justify-between relative gap-8">
         <div>
@@ -73,9 +75,10 @@ const Header = () => {
             </Link>
           </li>
           <li>
-            <Link to="/the-loai/" className="hover:text-blue-500">
-              Thể Loại
-            </Link>
+            <GenreDropDown />
+          </li>
+          <li>
+            <NationalDropDown />
           </li>
         </ul>
       </nav>

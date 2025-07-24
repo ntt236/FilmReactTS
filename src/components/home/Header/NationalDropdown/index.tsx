@@ -9,25 +9,25 @@ import { ChevronDown } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-interface Genre {
+interface National {
   _id: string;
   name: string;
   slug: string;
 }
 
-const GenreDropDown = () => {
-  const [genres, setGenres] = useState<Genre[]>([]);
-  console.log("🚀 ~ GenreDropDown ~ genres:", genres);
+const NationalDropDown = () => {
+  const [national, setNational] = useState<National[]>([]);
+  console.log("🚀 ~ GenreDropDown ~ genres:", national);
 
   useEffect(() => {
     try {
-      const fetchGenres = async () => {
-        const res = await axios.get("https://phimapi.com/the-loai");
+      const fetchNational = async () => {
+        const res = await axios.get("https://phimapi.com/quoc-gia");
         if (res.status === 200) {
-          setGenres(res.data);
+          setNational(res.data);
         }
       };
-      fetchGenres();
+      fetchNational();
     } catch (error) {
       console.log("🚀 ~ useEffect ~ error:", error);
     }
@@ -36,17 +36,17 @@ const GenreDropDown = () => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger className="flex items-center gap-1 font-medium">
-        Thể loại
+        Quốc gia
         <ChevronDown size={16} />
       </DropdownMenuTrigger>
       <DropdownMenuContent
-        className="w-[500px] right-0 mt-9 shadow-lg rounded-md ring-1 ring-black ring-opacity-5"
+        className="w-[600px] right-0 mt-9 shadow-lg rounded-md ring-1 ring-black ring-opacity-5"
         align="end"
       >
-        <div className="grid grid-cols-3 gap-4 justify-items-center px-4 py-4">
-          {genres.map((item) => (
+        <div className="grid grid-cols-3 gap-4 justify-items-center px4 py-4">
+          {national.map((item) => (
             <DropdownMenuItem asChild key={item._id}>
-              <Link to={`the-loai/${item.slug}`}>{item.name}</Link>
+              <Link to={`quoc-gia/${item.slug}`}>{item.name}</Link>
             </DropdownMenuItem>
           ))}
         </div>
@@ -55,4 +55,4 @@ const GenreDropDown = () => {
   );
 };
 
-export default GenreDropDown;
+export default NationalDropDown;
